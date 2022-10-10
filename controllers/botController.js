@@ -51,6 +51,7 @@ let postWebhook = async (req, res) => {
                     }
                     else if (action.includes('buy')){
                         let answer = await getProduct(tempResp[1], null)
+                        // not asking details of customer like customer name, address etc as per the description given in task.
                         sendREmail( JSON.stringify(answer));
                     }
 
