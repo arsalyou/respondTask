@@ -34,6 +34,7 @@ let postWebhook = async (req, res) => {
             // Get the sender PSID
             let sender_psid = webhook_event.sender.id;
             sendMarkSeen(sender_psid);
+
             if (webhook_event.message) {
                 let msg = webhook_event.message.text;
                 console.log(msg)
@@ -117,7 +118,7 @@ function callSendAPI(sender_psid, response) {
 function sendMarkSeen(sender){
 	request({
 		url: 'https://graph.facebook.com/v15.0/me/messages',
-		qs: {access_token:token},
+		qs: {access_token: token},
 		method: 'POST',
 		json: {
 			recipient: {id:sender},
@@ -132,7 +133,7 @@ function sendMarkSeen(sender){
 	})
 }
 
-sendREmail( 'dsds');
+//sendREmail( 'dsds');
 
 module.exports = {
     verifyWebhook,
